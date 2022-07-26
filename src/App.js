@@ -2,25 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemCount from './components/ItemCount/ItemCount';
+import { useState } from 'react';
 
 function App() {
+
+  const [show, setShow] = useState(true)
   return (
     <div className="App">
       <header className="App-header">
         <Navbar />
-        <ItemListContainer greeting="Bienvenido"/>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ItemListContainer show={show} setShow={setShow} greeting="Bienvenido"/>
+        {/* {show ? <ItemCount /> : null} */}
       </header>
     </div>
   );
