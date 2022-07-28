@@ -13,7 +13,7 @@ function App() {
       <header className="App-header">
         <Navbar />
         <ItemListContainer show={show} setShow={setShow} greeting="Bienvenido"/>
-        {/* {show ? <ItemCount /> : null} */}
+        
       </header>
     </div>
   );
