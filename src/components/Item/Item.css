@@ -45,3 +45,14 @@
     font-size: 16px;
     padding: .5rem;
 } 
+
+.productDetail {
+    color: rgba(255, 0, 0, 0.797);
+    background-color: #282c34;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.productDetail:hover {
+    color: whitesmoke;
+}
