@@ -24,10 +24,10 @@ const ItemDetail = ({product}) => {
                 <h3>{product.category}</h3>
                 <h3>Precio: {product.price}</h3>
                 <h3>Stock: {product.stock}</h3>
-            <div className='detailCount'>
-            {quantity > 0 ? <Link to='/cart'>Ir al carrito</Link> : <ItemCount stock={product.stock} initial={1} onAdd={onAdd}/>}
-            </div>
-                <p>{product.description}</p>
+                <div className='detailCount'>
+                    {quantity > 0 ? <Link to='/cart'>Ir al carrito</Link> : <ItemCount stock={product.stock} initial={1} onAdd={onAdd}/>}
+                </div>
+                    <p>{product.description}</p>
             </div>
         </div>
         

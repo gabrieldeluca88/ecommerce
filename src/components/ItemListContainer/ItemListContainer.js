@@ -23,7 +23,7 @@ const ItemListContainer = (props) => {
 
 
     if(loading) {
-        return <h1>Cargando productos...</h1>
+        return <div className="loader"></div>
     }
 
 

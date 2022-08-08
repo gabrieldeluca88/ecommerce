@@ -21,7 +21,7 @@ const ItemDetailContainer = (props) => {
 
 
     if(loading) {
-        return <div className="cargando"></div>
+        return <div className="loader"></div>
     }
 
     
