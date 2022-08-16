@@ -1,0 +1,21 @@
+.SinItems{
+    height: 100vh;
+}
+
+.Cart{
+    height: 100vh;
+}
+
+.Button {
+    width: auto;
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #211035;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+

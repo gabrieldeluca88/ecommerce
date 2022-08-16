@@ -32,3 +32,11 @@
     align-items: center;
     text-align: center;
 } 
+
+.GoCart {
+    color: red;
+}
+
+.itemdetail{
+    height: 100vh;
+}

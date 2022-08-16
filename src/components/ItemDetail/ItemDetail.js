@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 
 
+
 const ItemDetail = ({id, name, img, category, price, description, stock}) => {
 
     const [quantity, setQuantity] = useState(0)
@@ -13,7 +14,6 @@ const ItemDetail = ({id, name, img, category, price, description, stock}) => {
     const quantityAdded = getProductQuantity(id)
 
     const onAdd = (quantity) => {
-    alert (`se agrego ${quantity} al carrito`);
     console.log(`se agrego ${quantity} al carrito`);
     setQuantity(quantity)
     addItem({id, name, price, quantity})
@@ -30,7 +30,7 @@ const ItemDetail = ({id, name, img, category, price, description, stock}) => {
                 <h3>Precio: {price}</h3>
                 <h3>Stock: {stock}</h3>
                 <div className='detailCount'>
-                    {quantity > 0 ? <Link to='/cart'>Ir al carrito</Link> : <ItemCount stock={stock} initial={quantityAdded} onAdd={onAdd}/>}
+                    {quantity > 0 ? <Link className='GoCart'to='/cart'>Ir al carrito</Link> : <ItemCount stock={stock} initial={quantityAdded} onAdd={onAdd}/>}
                 </div>
                     <p>{description}</p>
             </div>
