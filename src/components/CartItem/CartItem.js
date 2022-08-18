@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
 
-const CartItem = ({ id, name, quantity, price, }) => {
+const CartItem = ({ id, name, quantity, price, img}) => {
     const { removeItem } = useContext(CartContext)
 
     const handleRemove = (id) => {
@@ -12,6 +12,9 @@ const CartItem = ({ id, name, quantity, price, }) => {
 
     return (
         <article className='CardCartItem'>
+            <div>
+                <img src={img} alt={name}/>
+            </div>
             <header className="HeaderCartItem">
                 <h2 className="ItemHeaderCartItem">
                     {name}
