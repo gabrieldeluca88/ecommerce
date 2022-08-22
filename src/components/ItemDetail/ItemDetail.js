@@ -16,7 +16,7 @@ const ItemDetail = ({id, name, img, category, price, description, stock}) => {
     const onAdd = (quantity) => {
     console.log(`se agrego ${quantity} al carrito`);
     setQuantity(quantity)
-    addItem({id, name, price, quantity})
+    addItem({id, name, price, quantity, img})
     }; 
 
     return(
@@ -25,6 +25,7 @@ const ItemDetail = ({id, name, img, category, price, description, stock}) => {
                 <img className='img_detail' src={img} alt={name}/>
             </div>
             <div className='detail'>
+                <Link to='/' className='GoCart'>Seguir mirando</Link>
                 <h3>{name}</h3>
                 <h3>{category}</h3>
                 <h3>Precio: {price}</h3>

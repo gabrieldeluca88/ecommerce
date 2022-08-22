@@ -38,6 +38,7 @@
     height: auto;
     padding: .5rem;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .productStock {

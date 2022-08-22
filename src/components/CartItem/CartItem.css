@@ -39,7 +39,7 @@
     padding: 12px;
     font-size: 8px;
     background: #e71515;
-    border-radius: 8px;
+    border-radius: 5px;
     flex: none;
     display: flex;
     order: 1;
@@ -57,4 +57,10 @@
 
 .ItemFooterCartItem {
     display: flex;
+}
+
+.imgCart{
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
 }

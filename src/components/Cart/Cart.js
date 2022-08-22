@@ -21,11 +21,13 @@ const Cart = () => {
 
     return (     
         <div className='Cart'>
-            <h1>Cart</h1>
+            <h1>Mi Carrito</h1>
+            <Link to='/' className='GoCart'>Seguir mirando</Link>
             { cart.map(p => <CartItem key={p.id} {...p}/>) }
             <h3>Total: ${total}</h3>
-            <button onClick={() => clearCart()} className="Button">Limpiar carrito</button>
-            <button className="Button">Generar Orden</button>
+            <button onClick={() => clearCart()} className="Button">Vaciar carrito</button>
+            <button className="Button">Comprar</button>
+            <Link to='/checkout' className='Option'>Checkout</Link>
         </div>
     )
 }
