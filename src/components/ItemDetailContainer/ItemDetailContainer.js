@@ -1,23 +1,24 @@
-import { useState, useEffect } from "react";
-/* import { getProduct } from "../../asyncMock"; */
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
-import { db } from "../../services/firebase";
-import { getDoc, doc } from "firebase/firestore";
+import { getProductById } from "../../services/firebase/firestore";
+import { useAsync } from '../../hooks/useAsync';
+import { fetcher } from '../../utils/fetcher';
 
-const ItemDetailContainer = (props) => {
-    const [product, setProduct] = useState([])
-    const [loading, setLoading] = useState(true)
+const ItemDetailContainer = () => {
+    /* const [product, setProduct] = useState([])
+    const [loading, setLoading] = useState(true) */
     const {productId} = useParams()
 
-    useEffect(() =>{
-      /*   getProduct(productId).then(response => {
+    const { isLoading, data, error } = useAsync(fetcher(getProductById, productId), [productId]);
+
+    /* useEffect(() =>{
+         getProduct(productId).then(response => {
             setProduct(response);
         }).catch(error => {
             console.log(error)
         }).finally(() => {
         setLoading(false)
-    }) */
+    }) 
         getDoc(doc(db, 'products', productId)).then(response =>{
             const values = response.data()
 
@@ -28,18 +29,21 @@ const ItemDetailContainer = (props) => {
         }).finally(() => {
             setLoading(false)
         })
-    },[productId])
+    },[productId]) */
 
 
 
-    if(loading) {
+    if(isLoading) {
         return <div className="loader"></div>
     }
 
+    if(error) {
+        return <h1>Hubo un error</h1>
+    }
     
     return(
         <div className="itemdetail">
-            <ItemDetail {...product}/>
+            <ItemDetail {...data}/>
         </div>
     );
 }

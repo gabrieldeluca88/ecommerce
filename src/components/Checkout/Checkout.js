@@ -6,11 +6,14 @@ import { collection, addDoc, Timestamp, writeBatch, where, query, getDocs, docum
 import { db } from "../../services/firebase";
 import './Checkout.css'
 
+
+
+
 const Checkout = () => {
 const [status, setStatus] = useState(0);
 const [orderNumber, setorderNumber] = useState("");
 const [outStock, setOutStock] = useState([]);
-const { cart, total, clearCart } = useContext(CartContext);
+const { cart, getTotal, clearCart} = useContext(CartContext);
 const [name, setName] = useState("");
 const [dni, setDni] = useState("");
 const [email, setEmail] = useState("");
@@ -28,12 +31,13 @@ if (status === 1) {
         <p>Compraste con exito!</p>
         <div className="OrderNumber">
             <p>Se ha realizado la orden exitosamente</p>
-            <p>Tu número de orden es {orderNumber}</p>
-            <Link className='GoCart'to='/cart'>Seguir mirando</Link>
+            <p>Tu número de orden es : {orderNumber}</p>
+            <Link to='/' className='logo'>Ir a inicio</Link>
         </div>
     </div>
     );
 }
+
 
 if (status === 2) {
     return (
@@ -44,13 +48,9 @@ if (status === 2) {
             {outStock.map((item) => {
             return (
             <div key={item.id}>
-                <Link  to={`/detail/${item.id}`}>
-                    <img src={item.img} alt={item.name}/>
-                </Link>
-                <Link to={`/detail/${item.id}`}>
-                {item.name}
-                </Link>
-                <p>{item.quantity}</p>
+                <Link  to={`/detail/${item.id}`}> <img src={item.img} alt={item.name}/></Link>
+                <Link to={`/detail/${item.id}`}> {item.name}</Link>
+                <Link to={`/detail/${item.id}`}> <p>$ {item.price}</p></Link>
                 <Link to={"/cart"}  onClick={() => Remove(item.id)}>Quitar</Link>
             </div>
             );
@@ -78,7 +78,7 @@ const createOrder = async (e) => {
         },
         items: cart,
         date: Timestamp.fromDate(new Date()),
-        total:`${total}`,
+        total:getTotal(),
     };
 
     const ids = cart.map((e) => e.id);
@@ -121,17 +121,21 @@ const createOrder = async (e) => {
 };
 const validate = () => {
     if (name.length <= 0) {
-    alert("El nombre no debe quedar en blanco");
-    return false;
+        alert("Completar nombre");
+        return false;
+    }
+    if (dni.length <= 0) {
+        alert("Completar DNI");
+        return false;
+        }
+    if (email.length <= 0 || !String(email).includes("@")) {
+        alert("Inserte un correo electrónico valido");
+        return false;
     }
     if (phone.length <= 0 || isNaN(parseInt(phone))) {
-    alert("El número de teléfono no puede contener caracteres");
-    return false;
-    }
-    if (email.length <= 0 || !String(email).includes("@")) {
-    alert("Inserte un correo electrónico valido");
-    return false;
-    }
+        alert("Completar con numero de telefono");
+        return false;
+        }
     return true;
 };
 
@@ -151,11 +155,25 @@ return (
                     <input type='email' onChange={(e) => setEmail(e.target.value)} required placeholder='Introduzca su email'/>
                 </label>
                 <label>telefono: 
-                    <input type='number' onChange={(e) => setPhone(e.target.value)} required placeholder='Introduzca su telefono'/>
+                    <input type='phone' onChange={(e) => setPhone(e.target.value)} required placeholder='Introduzca su telefono'/>
                 </label>
+                <button className="Button" type="submit" onClick={createOrder}>Comprar</button>
+                <Link className='Button'to='/cart'>Ir al carrito</Link>
             </div>
             
-            <button className="Button" type="submit" onClick={createOrder}>Comprar</button>
+            
+
+            <div className="detalle">
+                <h1>Detalle de compra</h1>
+                {cart.map((item) => {
+                return (
+                <div key={item.id}>
+                    <Link  to={`/detail/${item.id}`}> <img src={item.img} alt={item.name}/></Link>
+                    <Link to={`/detail/${item.id}`}> {item.name}</Link>
+                    <Link to={`/detail/${item.id}`}> <p>precio $ {item.price}</p></Link>
+                </div>);
+                })}<h3>Total: ${getTotal()}</h3>
+            </div>
     </form>
 );
 };

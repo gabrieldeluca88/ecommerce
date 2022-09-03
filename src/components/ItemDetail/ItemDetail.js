@@ -19,6 +19,27 @@ const ItemDetail = ({id, name, img, category, price, description, stock}) => {
     addItem({id, name, price, quantity, img})
     }; 
 
+    if (stock === 0 ){
+        return (
+            <div className='item_card'>
+            <div className='img_detail'>   
+                <img className='img_detail' src={img} alt={name}/>
+            </div>
+            <div className='detail'>
+                <Link to='/' className='GoCart'>Seguir mirando</Link>
+                <h3>{name}</h3>
+                <h3>{category}</h3>
+                <h3>Precio: {price}</h3>
+                <h3>Stock: Agotado </h3>
+                <div className='detailCount'>
+                    <Link className='GoCart'to='/cart'>Ir al carrito</Link> 
+                </div>
+                <p>{description}</p>
+            </div>
+        </div>
+        );
+    }
+
     return(
         <div className='item_card'>
             <div className='img_detail'>   
@@ -36,7 +57,6 @@ const ItemDetail = ({id, name, img, category, price, description, stock}) => {
                     <p>{description}</p>
             </div>
         </div>
-        
     )
 }
 
