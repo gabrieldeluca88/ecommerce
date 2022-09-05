@@ -1,0 +1,108 @@
+form {
+    min-height:auto;
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    padding-right: 200px;
+}
+
+.OrderNumber {
+    height: 100vh;
+}
+
+.detalle{
+    display: flex;
+    flex-direction: column;
+}
+
+.detailCart {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    padding: 5px;
+    margin: 5px;
+    font-size: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgb(0 0 0 / 37%);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.detailCart p {
+    margin: 0px;
+    color: white;
+}
+
+.detailCart a {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.buttonFinally {
+    width: auto;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(21, 21, 32);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgb(0 0 0 / 37%);
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    align-items: center;
+}
+
+.buttonFinally:hover{
+    transform: scale(1.1);
+    color: red;
+}
+
+.buttonBack {
+    width: auto;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(21, 21, 32);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgb(0 0 0 / 37%);
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.buttonBack:hover{
+    color: red;
+}
+
+label {
+    padding: 10px;
+}
+
+input {
+    margin-left: 10px;
+}
+
+.fail{
+    min-height: 60vh;
+}

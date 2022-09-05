@@ -1,0 +1,43 @@
+
+.Navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 30px;
+    background-color: rgb(175, 171, 171);
+    height: 150px;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgb(18 18 18);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+a{
+    font-size: 26px;
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(28, 25, 35);
+}
+
+a:hover {
+    color: whitesmoke;
+}
+
+.logo{
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.logo:hover {
+    color:  rgb(28, 25, 35);
+}
+img {
+    height: 30px;
+}
+
+.cartWidget {
+    font-size: medium;
+    padding: 10px;
+}
