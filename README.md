@@ -24,7 +24,7 @@ que contiene Itemcount: que se encarga de contar los productos del carrito
 CartContext: contiene la logica del carrito
 para finalizar la compra y generar una orden se debera completar un formulario el componente que contiene su logica es checkout
 
-Firebase: se utiliza como base de datos, las funciones que involucran a firebase estan en la carpeta services/firebase   
+Firebase: se utiliza como base de datos, las funciones que involucran a firebase estan en la carpeta services/firebase.   
 
 
 gif de la app
