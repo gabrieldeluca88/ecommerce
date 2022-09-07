@@ -9,14 +9,14 @@ const CartWidget = () => {
     if (quantity === 0){
         return (
             <Link to='/cart' className="CartWidget">
-                <img src='/images/cart.svg' alt='cart' className='CartImg'/>
+                <img src='/imagenes/cart.svg' alt='cart' className='CartImg'/>
             </Link>
         );
     }
 
     return(
         <Link to='/cart' className="CartWidget">
-            <img src='/images/cart.svg' alt='cart' className='CartImg'/>
+            <img src='/imagenes/cart.svg' alt='cart' className='CartImg'/>
             {quantity}
         </Link>
     );
